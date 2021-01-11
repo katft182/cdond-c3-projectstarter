@@ -63,7 +63,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
+          keys: [backend-build-modules]
       - run:
           name: Back-end build
           command: |
@@ -72,7 +72,7 @@ jobs:
               npm run build
       - save_cache:
           paths: [backend/node_modules]
-          key: backend-build
+          key: backend-build-modules
       - persist_to_workspace:
           root: ~/
           paths:
@@ -99,7 +99,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
+          keys: [backend-build-modules]
       - run:
           name: Test backend
           command: |
@@ -127,7 +127,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
+          keys: [backend-build-modules]
       - run:
           name: Scan backend
           command: |
@@ -203,7 +203,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
+          keys: [backend-build-modules]
       - run:
           name: awscli install for rollback
           command: |
@@ -267,7 +267,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
+          keys: [backend-build-modules]
       - add_ssh_keys:
           fingerprints: ["b7:24:f3:78:7e:a0:b8:98:b2:50:fc:5b:59:c5:9c:57"]
       - run:
