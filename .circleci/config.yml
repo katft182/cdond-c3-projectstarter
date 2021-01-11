@@ -132,7 +132,7 @@ jobs:
           name: Scan backend
           command: |
             cd backend
-            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
       - slack_notify_on_fail
 
   deploy-infrastructure:
